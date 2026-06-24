@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Placeholder for rich text contenteditable editor */
+.rich-editor {
+  position: relative;
+}
+
+.rich-editor:empty::before {
+  content: attr(placeholder);
+  color: #9ca3af;
+  pointer-events: none;
+  display: inline-block;
+  position: absolute;
+}
+
+/* Make sure lists inside contenteditable and preview render standard bullet styles */
+.rich-editor ul, .whitespace-pre-wrap ul {
+  list-style-type: disc !important;
+  padding-left: 1.5rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.rich-editor ol, .whitespace-pre-wrap ol {
+  list-style-type: decimal !important;
+  padding-left: 1.5rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.rich-editor li, .whitespace-pre-wrap li {
+  display: list-item !important;
+}
+
+/* Tracked changes highlights inside email content/diff text */
+.whitespace-pre-wrap del,
+.whitespace-pre-wrap strike,
+.whitespace-pre-wrap s,
+.rich-editor del,
+.rich-editor strike,
+.rich-editor s {
+  background-color: #fee2e2 !important; /* Light red */
+  color: #991b1b !important;
+  text-decoration: line-through !important;
+  padding: 0.1rem 0.25rem !important;
+  border-radius: 0.25rem !important;
+}
+
+.whitespace-pre-wrap u,
+.rich-editor u {
+  background-color: #dcfce7 !important; /* Light green */
+  color: #166534 !important;
+  text-decoration: none !important;
+  padding: 0.1rem 0.25rem !important;
+  border-radius: 0.25rem !important;
+}
+
